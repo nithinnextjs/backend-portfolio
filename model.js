@@ -1,16 +1,17 @@
 const mongoose = require('mongoose');
 
-const Profiles = mongoose.Schema({
-    fristname: {
+const ProfileSchema = mongoose.Schema({
+    firstname: {  // Corrected typo
         type: String,
-        required:true,
+        required: true,
     },
     lastname: {
         type: String,
-        required:true,
+        required: true,
     },
     Email: {
         type: String,
+        required: true,  // Added 'required' if Email is mandatory
     },
     Phonenumber: {
         type: String,
@@ -19,15 +20,15 @@ const Profiles = mongoose.Schema({
         type: String,
     },
     companyname: {
-        type: String
+        type: String,
     },
     contacttype: {
-        type: String
+        type: String,
     },
-    date : {
-        type :Date,
-        default: Date.now
-    }
-})
+    date: {
+        type: Date,
+        default: Date.now,
+    },
+});
 
-module.exports = mongoose.model('profiles',Profiles)
+module.exports = mongoose.model('Profile', ProfileSchema); // Singular name for the model
