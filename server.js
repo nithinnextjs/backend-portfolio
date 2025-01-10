@@ -18,9 +18,9 @@ mongoose
 
 // POST endpoint to add new profile
 app.post('/profiles', async (req, res) => {
-  const { fristname, lastname, companyname, contacttype, reasonforcontact, Email, Phonenumber } = req.body;
+  const { firstname, lastname, companyname, contacttype, reasonforcontact, Email, Phonenumber } = req.body;
   try {
-    const newData = new Profiles({ fristname, lastname, companyname, contacttype, reasonforcontact, Email, Phonenumber });
+    const newData = new Profiles({ firstname, lastname, companyname, contacttype, reasonforcontact, Email, Phonenumber });
     await newData.save();
     const allProfiles = await Profiles.find();
     return res.json(allProfiles); // Return updated profiles list
@@ -43,12 +43,12 @@ app.get('/getprofiles', async (req, res) => {
 
 // PUT endpoint to update profile by ID
 app.put('/updateprofiles/:id', async (req, res) => {
-  const { fristname, lastname, companyname, contacttype, reasonforcontact, Email, Phonenumber } = req.body;
+  const { firstname, lastname, companyname, contacttype, reasonforcontact, Email, Phonenumber } = req.body;
   try {
     // Update the profile by ID
     const updatedProfile = await Profiles.findByIdAndUpdate(
       req.params.id,
-      { fristname, lastname, companyname, contacttype, reasonforcontact, Email, Phonenumber },
+      { firstname, lastname, companyname, contacttype, reasonforcontact, Email, Phonenumber },
       { new: true } // Return updated document
     );
     return res.json(updatedProfile); // Return the updated profile
