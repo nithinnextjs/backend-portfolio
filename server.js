@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Profiles = require('../nithin-gudala-portfolio/backend/model'); // Assuming your model file is named 'model.js'
+const Profiles = require('./model'); // Assuming your model file is named 'model.js'
 const app = express();
 
 // Middleware to parse incoming JSON data
