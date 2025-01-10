@@ -30,7 +30,7 @@ app.post('/profiles', async (req, res) => {
 app.get('/getprofiles', async (req, res) => {
   try {
     const allProfiles = await Profiles.find();
-    return res.json(allProfiles);
+    return res.json(allProfiles);  // Return profiles as JSON
   } catch (err) {
     console.log(err.message);
     return res.status(500).json({ error: 'Error fetching profiles', details: err.message });
