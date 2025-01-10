@@ -1,7 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors'); // Import CORS package
 const Profiles = require('./model'); // Assuming your model file is named 'model.js'
 const app = express();
+
+// Middleware to enable CORS
+app.use(cors()); // Allow all origins (for now, can be restricted later)
 
 // Middleware to parse incoming JSON data
 app.use(express.json());
@@ -84,5 +88,5 @@ app.delete('/deleteprofiles/:id', async (req, res) => {
 });
 
 // Start the server
-const PORT = 5000; // You can replace with process.env.PORT if needed
+const PORT = process.env.PORT || 5000; // Use environment variable if available
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
